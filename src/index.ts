@@ -5,7 +5,6 @@ import { connectMongoDB } from "./db/mongoose.db";
 import paymentRoutes from "./routes/paymentRoutes";
 import authRoutes from "./routes/authRoutes";
 import cartRoutes from "./routes/cartRoutes";
-// import { variables } from "./helpers/variables";
 
 export interface IErrorResponse extends Error {
     status: number;
