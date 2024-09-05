@@ -4,7 +4,6 @@ import express, { NextFunction, Request, Response } from "express";
 import { connectMongoDB } from "./db/mongoose.db";
 import paymentRoutes from "./routes/paymentRoutes";
 import authRoutes from "./routes/authRoutes";
-import cartRoutes from "./routes/cartRoutes";
 
 export interface IErrorResponse extends Error {
     status: number;
@@ -16,7 +15,6 @@ const app = express();
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api", paymentRoutes);
-app.use("/api", cartRoutes);
 
 app.use("*", (req: Request, res: Response) => {
     return res.status(404).json({ message: "Could not find Endpoint!" });
