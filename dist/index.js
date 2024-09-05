@@ -32,10 +32,14 @@ const express_1 = __importDefault(require("express"));
 const mongoose_db_1 = require("./db/mongoose.db");
 const paymentRoutes_1 = __importDefault(require("./routes/paymentRoutes"));
 const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
+const cartRoutes_1 = __importDefault(require("./routes/cartRoutes"));
+const categoryRoutes_1 = __importDefault(require("./routes/categoryRoutes"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use("/api/auth", authRoutes_1.default);
 app.use("/api", paymentRoutes_1.default);
+app.use("/api", cartRoutes_1.default);
+app.use("/api", categoryRoutes_1.default);
 app.use("*", (req, res) => {
     return res.status(404).json({ message: "Could not find Endpoint!" });
 });
@@ -47,5 +51,4 @@ app.use((error, req, res, next) => {
     });
 });
 (0, mongoose_db_1.connectMongoDB)(app);
-//
 //# sourceMappingURL=index.js.map
